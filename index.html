@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Väderstation – Linux Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="dashboard">
+    <div class="header">
+        <div>
+            <div class="header-title">VÄDERSTATION – OPPEBY</div>
+            <div class="header-sub">Linux / Carbon Black · 3 kolumner · Ecowitt API</div>
+        </div>
+        <div id="last_update" class="header-sub">Senast uppdaterad: –</div>
+    </div>
+
+    <div id="error" class="error"></div>
+
+    <div class="grid">
+        <!-- VIND -->
+        <div class="panel">
+            <div class="panel-header">
+                <div class="panel-title">Vind</div>
+                <div id="wind_badge" class="badge wind-calm">Lugn</div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <span class="label">Medelvind</span>
+                    <div>
+                        <span id="wind_speed" class="value-main">–</span>
+                        <span class="value-unit">m/s</span>
+                    </div>
+                    <span class="value-sub">Max: <span id="wind_max">–</span> m/s</span>
+                </div>
+                <div class="col">
+                    <span class="label">Byvind</span>
+                    <div>
+                        <span id="wind_gust" class="value-main">–</span>
+                        <span class="value-unit">m/s</span>
+                    </div>
+                    <span class="value-sub">Max: <span id="gust_max">–</span> m/s</span>
+                </div>
+                <div class="col" style="align-items:center;">
+                    <span class="label">Riktning</span>
+                    <div class="compass">
+                        <div id="compass_arrow" class="compass-arrow"></div>
+                        <div class="compass-center"></div>
+                    </div>
+                    <span class="value-sub"><span id="wind_dir">–</span>°</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- TEMP UTE -->
+        <div class="panel">
+            <div class="panel-header">
+                <div class="panel-title">Utomhus</div>
+                <div id="temp_badge" class="badge temp-cool">Normal</div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <span class="label">Temperatur</span>
+                    <div>
+                        <span id="temp_out" class="value-main">–</span>
+                        <span class="value-unit">°C</span>
+                    </div>
+                    <span class="value-sub">
+                        Max: <span id="temp_out_max">–</span> · Min: <span id="temp_out_min">–</span>
+                    </span>
+                </div>
+                <div class="col">
+                    <span class="label">Luftfuktighet</span>
+                    <div>
+                        <span id="hum_out" class="value-main">–</span>
+                        <span class="value-unit">%</span>
+                    </div>
+                    <span class="value-sub">
+                        Max: <span id="hum_out_max">–</span> · Min: <span id="hum_out_min">–</span>
+                    </span>
+                </div>
+                <div class="col">
+                    <span class="label">Daggpunkt</span>
+                    <div>
+                        <span id="dew_out" class="value-main">–</span>
+                        <span class="value-unit">°C</span>
+                    </div>
+                    <span class="value-sub">
+                        Max: <span id="dew_out_max">–</span> · Min: <span id="dew_out_min">–</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- TEMP INNE -->
+        <div class="panel">
+            <div class="panel-header">
+                <div class="panel-title">Inomhus</div>
+                <div class="panel-tag">Sensor</div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <span class="label">Temperatur</span>
+                    <div>
+                        <span id="temp_in" class="value-main">–</span>
+                        <span class="value-unit">°C</span>
+                    </div>
+                    <span class="value-sub">
+                        Max: <span id="temp_in_max">–</span> · Min: <span id="temp_in_min">–</span>
+                    </span>
+                </div>
+                <div class="col">
+                    <span class="label">Luftfuktighet</span>
+                    <div>
+                        <span id="hum_in" class="value-main">–</span>
+                        <span class="value-unit">%</span>
+                    </div>
+                    <span class="value-sub">
+                        Max: <span id="hum_in_max">–</span> · Min: <span id="hum_in_min">–</span>
+                    </span>
+                </div>
+                <div class="col">
+                    <span class="label">Daggpunkt</span>
+                    <div>
+                        <span id="dew_in" class="value-main">–</span>
+                        <span class="value-unit">°C</span>
+                    </div>
+                    <span class="value-sub">
+                        Max: <span id="dew_in_max">–</span> · Min: <span id="dew_in_min">–</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- REGN -->
+        <div class="panel">
+            <div class="panel-header">
+                <div class="panel-title">Nederbörd</div>
+                <div class="panel-tag">Regn</div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <span class="label">Regnintensitet</span>
+                    <div>
+                        <span id="rain_rate" class="value-main">–</span>
+                        <span class="value-unit">mm/h</span>
+                    </div>
+                    <span class="value-sub">
+                        Max: <span id="rain_rate_max">–</span> · Min: <span id="rain_rate_min">–</span>
+                    </span>
+                </div>
+                <div class="col">
+                    <span class="label">Idag</span>
+                    <div>
+                        <span id="rain_daily" class="value-main">–</span>
+                        <span class="value-unit">mm</span>
+                    </div>
+                    <span class="value-sub">Event: <span id="rain_event">–</span> mm</span>
+                </div>
+                <div class="col">
+                    <span class="label">Perioder</span>
+                    <span class="value-sub">Timme: <span id="rain_hourly">–</span> mm</span>
+                    <span class="value-sub">Vecka: <span id="rain_weekly">–</span> mm</span>
+                    <span class="value-sub">Månad: <span id="rain_monthly">–</span> mm</span>
+                    <span class="value-sub">År: <span id="rain_yearly">–</span> mm</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- TRYCK -->
+        <div class="panel">
+            <div class="panel-header">
+                <div class="panel-title">Lufttryck</div>
+                <div class="panel-tag">hPa</div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <span class="label">Relativt</span>
+                    <div>
+                        <span id="pressure_rel" class="value-main">–</span>
+                        <span class="value-unit">hPa</span>
+                    </div>
+                    <span class="value-sub">
+                        Max: <span id="pressure_max">–</span> · Min: <span id="pressure_min">–</span>
+                    </span>
+                </div>
+                <div class="col">
+                    <span class="label">Absolut</span>
+                    <div>
+                        <span id="pressure_abs" class="value-main">–</span>
+                        <span class="value-unit">hPa</span>
+                    </div>
+                </div>
+                <div class="col" style="align-items:flex-end;">
+                    <span class="label">Trend</span>
+                    <div id="pressure_trend" class="trend trend-flat">→</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SOL & UV + MÅNFAS -->
+        <div class="panel">
+            <div class="panel-header">
+                <div class="panel-title">Sol & UV</div>
+                <div id="uvi_badge" class="badge uvi-low">Låg</div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <span class="label">Solinstrålning</span>
+                    <div>
+                        <span id="solar" class="value-main">–</span>
+                        <span class="value-unit">W/m²</span>
+                    </div>
+                    <span class="value-sub">
+                        Max: <span id="solar_max">–</span> · Min: <span id="solar_min">–</span>
+                    </span>
+                </div>
+                <div class="col">
+                    <span class="label">UV-index</span>
+                    <div>
+                        <span id="uvi" class="value-main">–</span>
+                    </div>
+                    <span class="value-sub">
+                        Max: <span id="uvi_max">–</span> · Min: <span id="uvi_min">–</span>
+                    </span>
+                </div>
+                <div class="row" style="margin-top:8px;">
+                    <div class="moon-wrap">
+                        <div id="moon_svg" class="moon-svg"></div>
+                        <div class="moon-text">
+                            <div class="label">Månfas</div>
+                            <div id="moon_text">–</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Debug -->
+<div id="debug_toggle" class="debug-toggle">Debug ▾</div>
+<div id="debug_panel" class="debug-panel">
+    <div class="debug-title">Debuglogg</div>
+    <div id="debug_box" class="debug-box"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

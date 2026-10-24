@@ -1,0 +1,247 @@
+:root {
+    --bg: #000000;
+    --panel: #111827;
+    --panel-soft: #020617;
+    --text: #d1d5db;
+    --text-soft: #9ca3af;
+    --accent: #06b6d4;
+    --accent-soft: #0ea5e9;
+    --danger: #ef4444;
+    --ok: #22c55e;
+    --warn: #f97316;
+    --border: #1f2937;
+    --card-radius: 10px;
+    --shadow: 0 10px 25px rgba(0,0,0,0.6);
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: radial-gradient(circle at top, #020617 0, #000000 55%);
+    color: var(--text);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* Layout */
+.dashboard {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 10px;
+}
+.header-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}
+.header-sub {
+    font-size: 0.9rem;
+    color: var(--text-soft);
+}
+
+/* Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+@media (max-width: 1200px) {
+    .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 800px) {
+    .grid { grid-template-columns: 1fr; }
+}
+
+/* Paneler */
+.panel {
+    background: var(--panel);
+    border-radius: var(--card-radius);
+    padding: 12px 14px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+}
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+.panel-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+}
+.panel-tag {
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: #020617;
+    color: var(--accent-soft);
+    border: 1px solid #1e293b;
+}
+
+/* Typografi */
+.value-main {
+    font-size: 2.1rem;
+    font-weight: 600;
+}
+.value-unit {
+    font-size: 0.9rem;
+    color: var(--text-soft);
+    margin-left: 4px;
+}
+.value-sub {
+    font-size: 0.9rem;
+    color: var(--text-soft);
+}
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4px 0;
+}
+.col {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.label {
+    font-size: 0.8rem;
+    color: var(--text-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+/* Badges */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+.wind-calm   { background:#022c22; color:#6ee7b7; }
+.wind-breezy { background:#0f172a; color:#38bdf8; }
+.wind-windy  { background:#1e293b; color:#facc15; }
+.wind-storm  { background:#450a0a; color:#fecaca; }
+
+.temp-cold { background:#0b1120; color:#60a5fa; }
+.temp-cool { background:#020617; color:#a5b4fc; }
+.temp-warm { background:#1f2937; color:#fbbf24; }
+.temp-hot  { background:#450a0a; color:#fdba74; }
+
+.uvi-low    { background:#022c22; color:#6ee7b7; }
+.uvi-mod    { background:#1e293b; color:#facc15; }
+.uvi-high   { background:#451a03; color:#fed7aa; }
+.uvi-very   { background:#7f1d1d; color:#fecaca; }
+.uvi-extreme{ background:#7f1d1d; color:#fee2e2; }
+
+/* Trend */
+.trend {
+    font-size: 1.1rem;
+    padding: 2px 6px;
+    border-radius: 6px;
+}
+.trend-up   { color:#4ade80; background:#052e16; }
+.trend-down { color:#f97373; background:#450a0a; }
+.trend-flat { color:#e5e7eb; background:#020617; }
+
+/* Vindkompass */
+.compass {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    border-radius: 999px;
+    border: 2px solid #1f2937;
+    background: radial-gradient(circle at 30% 30%, #1f2937, #020617);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.compass-arrow {
+    position: absolute;
+    width: 2px;
+    height: 36px;
+    background: var(--accent);
+    transform-origin: bottom center;
+    bottom: 50%;
+}
+.compass-center {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: #e5e7eb;
+}
+
+/* Månfas */
+.moon-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.moon-svg {
+    width: 60px;
+    height: 60px;
+}
+.moon-text {
+    font-size: 0.9rem;
+    color: var(--text-soft);
+}
+
+/* Debug */
+.debug-toggle {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background: #111827;
+    color: var(--text-soft);
+    border-radius: 999px;
+    padding: 4px 10px;
+    font-size: 0.8rem;
+    border: 1px solid #1f2937;
+    cursor: pointer;
+}
+.debug-panel {
+    position: fixed;
+    bottom: 40px;
+    right: 10px;
+    width: 380px;
+    max-height: 260px;
+    background: #020617;
+    border-radius: 10px;
+    border: 1px solid #1f2937;
+    box-shadow: var(--shadow);
+    padding: 8px;
+    display: none;
+}
+.debug-title {
+    font-size: 0.8rem;
+    color: var(--text-soft);
+    margin-bottom: 4px;
+}
+.debug-box {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.75rem;
+    color: #9ca3af;
+    max-height: 210px;
+    overflow-y: auto;
+}
+.debug-box pre {
+    margin: 0;
+    white-space: pre-wrap;
+}
+.error {
+    color: var(--danger);
+    font-size: 0.8rem;
+    margin-top: 4px;
+}
