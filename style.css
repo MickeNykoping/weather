@@ -245,3 +245,12 @@ body {
     font-size: 0.8rem;
     margin-top: 4px;
 }
+.sektion-rubrik {
+    grid-column: 1 / -1;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    margin: 8px 0 0;
+}
