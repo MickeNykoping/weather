@@ -293,3 +293,26 @@ body {
         font-size: 1.4rem;
     }
 }
+
+/* ===== Värmepump: en rad per värde på mobil och surfplatta ===== */
+@media (max-width: 800px) {
+    #pannan_värden {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+    #pannan_värden > .col {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: baseline;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 4px;
+    }
+    #pannan_värden .label {
+        white-space: normal;
+        font-size: 0.75rem;
+    }
+    #pannan_värden .value-main {
+        font-size: 1.3rem;
+    }
+}
