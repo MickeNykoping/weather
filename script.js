@@ -1,10 +1,6 @@
 /* ============================================================
    KONFIG
 ============================================================ */
-const APPLICATION_KEY = "362A8B7C93A7008651F859C719BCDC04";
-const API_KEY         = "223131fe-2659-407f-9cb4-602529f7d5aa";
-const DEVICE_MAC      = "E8:DB:84:9A:4E:09";
-const BASE_URL        = "https://api.ecowitt.net/api/v3/device/real_time";
 
 const LAT = 58.767454;
 const LON = 16.982295;
@@ -240,27 +236,11 @@ async function loadWeather() {
         extremes = { date: today(), values: {} };
     }
 
-    debug("Hämtar data från Ecowitt…");
-
-    const params = new URLSearchParams({
-        application_key: APPLICATION_KEY,
-        api_key: API_KEY,
-        mac: DEVICE_MAC,
-        call_back: "all",
-        temp_unitid: "1",
-        pressure_unitid: "3",
-        wind_speed_unitid: "6",
-        rainfall_unitid: "12",
-        solar_irradiance_unitid: "16"
-    });
-
     try {
-        const response = await fetch(`${BASE_URL}?${params.toString()}`);
-        const json = await response.json();
-        debug("API-svar:", json);
-
-        if (json.code !== 0) throw new Error(json.msg);
-        const d = json.data;
+        const response = await fetch(`weather.json?t=${Date.now()}`, { cache: "no-store" });
+        if (!response.ok) throw new Error("weather.json saknas (HTTP " + response.status + ")");
+        const d = await response.json();
+        debug("Data hämtad från weather.json");
 
         /* VIND */
         const ws = safe(d, "wind.wind_speed.value");
@@ -392,6 +372,31 @@ async function loadWeather() {
         debug("FEL: " + err.message);
     }
 }
+
+/* ============================================================
+   VÄRMEPUMP
+============================================================ */
+async function loadPannan() {
+    try {
+        const r = await fetch(`pannan.json?t=${Date.now()}`, { cache: "no-store" });
+        const p = await r.json();
+        document.getElementById("pannan_värden").innerHTML =
+            Object.entries(p.värden).map(([namn, v]) => `
+                <div class="col">
+                    <span class="label">${namn}</span>
+                    <div>
+                        <span class="value-main">${v.värde}</span>
+                        <span class="value-unit">${v.enhet ?? ""}</span>
+                    </div>
+                </div>`).join("");
+        document.getElementById("pannan_tid").textContent =
+            "Uppdaterad " + new Date(p.uppdaterad).toLocaleString("sv-SE");
+    } catch (e) {
+        document.getElementById("pannan_värden").textContent = "Kunde inte läsa pannan.json";
+    }
+}
+loadPannan();
+setInterval(loadPannan, 60000);
 
 loadWeather();
 setInterval(loadWeather, 30000);
