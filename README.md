@@ -1,2 +1,2 @@
-# weather
+# Weather
 Väderstation i Oppeby
