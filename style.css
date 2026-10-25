@@ -329,3 +329,19 @@ body {
         font-size: 1.1rem;
     }
 }
+
+/* ===== Energi ===== */
+#energi_värden { display: flex; flex-wrap: wrap; gap: 12px 20px; }
+#energi_värden > .col { flex: 1 1 130px; }
+@media (max-width: 800px) {
+    #energi_värden { display: grid; grid-template-columns: 1fr; gap: 6px; }
+    #energi_värden > .col {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: baseline;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 4px;
+    }
+    #energi_värden .label { white-space: normal; font-size: 0.75rem; }
+    #energi_värden .value-main { font-size: 1.3rem; }
+}

@@ -400,3 +400,34 @@ setInterval(loadPannan, 60000);
 
 loadWeather();
 setInterval(loadWeather, 30000);
+/* ============================================================
+   ENERGI
+============================================================ */
+async function loadEnergi() {
+    try {
+        const r = await fetch(`energi.json?t=${Date.now()}`, { cache: "no-store" });
+        const e = await r.json();
+        const fmt = (v, dec = 1) => (v === null || v === undefined) ? "–" : Number(v).toFixed(dec);
+        const rader = [
+            ["Just nu", fmt(e.effekt_w / 1000, 2), "kW"],
+            ["Senaste timmen", fmt(e.senaste_timmen_kwh, 2), "kWh"],
+            ["Idag", fmt(e.idag_kwh, 2), "kWh"],
+            ["Kostnad idag", fmt(e.idag_kostnad_kr, 2), "kr"],
+            ["Totalt", fmt(e.totalt_kwh, 0), "kWh"],
+        ];
+        document.getElementById("energi_värden").innerHTML = rader.map(([namn, v, enhet]) => `
+            <div class="col">
+                <span class="label">${namn}</span>
+                <div>
+                    <span class="value-main">${v}</span>
+                    <span class="value-unit">${enhet}</span>
+                </div>
+            </div>`).join("");
+        document.getElementById("energi_tid").textContent =
+            "Uppdaterad " + new Date(e.uppdaterad).toLocaleString("sv-SE");
+    } catch (err) {
+        document.getElementById("energi_värden").textContent = "Kunde inte läsa energi.json";
+    }
+}
+loadEnergi();
+setInterval(loadEnergi, 60000);
