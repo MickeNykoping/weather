@@ -316,3 +316,16 @@ body {
         font-size: 1.3rem;
     }
 }
+
+/* ===== NIBE-rubriken samma storlek som sidrubriken ===== */
+.sektion-rubrik {
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    margin: 16px 0 10px;
+}
+@media (max-width: 800px) {
+    .sektion-rubrik {
+        font-size: 1.1rem;
+    }
+}
