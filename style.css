@@ -254,3 +254,24 @@ body {
     color: var(--text-soft);
     margin: 8px 0 0;
 }
+
+/* ===== Mobil och läsplatta ===== */
+#pannan_värden { display: flex; flex-wrap: wrap; gap: 12px 20px; }
+#pannan_värden > .col { flex: 1 1 130px; }
+
+@media (max-width: 800px) {
+    .dashboard { padding: 10px; }
+    .header { flex-direction: column; gap: 4px; }
+    .header-title { font-size: 1.1rem; }
+    .panel { padding: 10px 12px; }
+    .value-main { font-size: 1.7rem; }
+    .row { flex-wrap: wrap; gap: 10px 16px; }
+    .row > .col { flex: 1 1 40%; min-width: 0; }
+    .compass { width: 70px; height: 70px; }
+    .debug-panel { width: calc(100vw - 20px); right: 10px; }
+}
+
+@media (max-width: 480px) {
+    .value-main { font-size: 1.4rem; }
+    .value-unit { font-size: 0.8rem; }
+}
