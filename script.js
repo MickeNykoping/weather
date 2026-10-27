@@ -298,26 +298,6 @@ async function loadWeather() {
         dew_out_max.textContent  = getExtreme("dew_out", "max", null);
         dew_out_min.textContent  = getExtreme("dew_out", "min", null);
 
-        /* INOMHUS */
-        const ti = safe(d, "indoor.temperature.value");
-        const hi = safe(d, "indoor.humidity.value");
-        const di = safe(d, "indoor.dew_point.value");
-
-        temp_in.textContent = ti ?? "–";
-        hum_in.textContent  = hi ?? "–";
-        dew_in.textContent  = di ?? "–";
-
-        updateExtreme("temp_in", ti);
-        updateExtreme("hum_in", hi);
-        updateExtreme("dew_in", di);
-
-        temp_in_max.textContent = getExtreme("temp_in", "max", safe(d, "indoor.temperature.max.value"));
-        temp_in_min.textContent = getExtreme("temp_in", "min", safe(d, "indoor.temperature.min.value"));
-        hum_in_max.textContent  = getExtreme("hum_in", "max", null);
-        hum_in_min.textContent  = getExtreme("hum_in", "min", null);
-        dew_in_max.textContent  = getExtreme("dew_in", "max", null);
-        dew_in_min.textContent  = getExtreme("dew_in", "min", null);
-
         /* SOL & UV */
         const sol = safe(d, "solar_and_uvi.solar.value");
         const uv  = safe(d, "solar_and_uvi.uvi.value");
