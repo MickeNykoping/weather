@@ -103,22 +103,11 @@ function getExtreme(key, type, ecowittValue) {
    MÅNFAS
 ============================================================ */
 function getMoonPhase() {
-    const now = new Date();
-    const year = now.getUTCFullYear();
-    const month = now.getUTCMonth() + 1;
-    const day = now.getUTCDate();
-
-    let YY = year - Math.floor((12 - month) / 10);
-    let MM = month + 9;
-    if (MM >= 12) MM -= 12;
-
-    const K1 = Math.floor(365.25 * (YY + 4712));
-    const K2 = Math.floor(30.6 * MM + 0.5);
-    const K3 = Math.floor(Math.floor((YY / 100) + 49) * 0.75) - 38;
-
-    const JD = K1 + K2 + day + 59;
-    const IP = (JD - 2451550.1) / 29.530588853;
-    return IP - Math.floor(IP);
+    // Referensnymåne 6 jan 2000 kl 18:14 UTC, en synodisk månad är 29,530588853 dygn
+    const ref = Date.UTC(2000, 0, 6, 18, 14);
+    const dagar = (Date.now() - ref) / 86400000;
+    const p = (dagar / 29.530588853) % 1;
+    return p < 0 ? p + 1 : p;
 }
 function getPhaseName(p) {
     if (p < 0.03 || p > 0.97) return "Nymåne";
@@ -130,17 +119,17 @@ function getPhaseName(p) {
     if (p < 0.78) return "Sista kvarteret";
     return "Avtagande skära";
 }
-function drawMoonSVG(phase) {
-    const percent = Math.abs(phase - 0.5) * 2;
-    const illuminated = 1 - percent;
+function drawMoonSVG(p) {
+    const k = (1 - Math.cos(2 * Math.PI * p)) / 2;  // andel belyst: 0 = nymåne, 1 = fullmåne
+    const tilltagande = p < 0.5;                     // höger sida belyst när månen växer
+    const skära = k < 0.5;
+    const rx = 45 * Math.abs(1 - 2 * k);
+    const yttre = tilltagande ? 1 : 0;
+    const kant = tilltagande ? (skära ? 0 : 1) : (skära ? 1 : 0);
     const svg = `
     <svg viewBox="0 0 100 100">
-        <circle cx="50" cy="50" r="45" fill="#f5f3ce"/>
-        <path d="
-            M 50 5
-            A 45 45 0 0 0 50 95
-            A ${45 * illuminated} 45 0 0 1 50 5
-        " fill="#020617"/>
+        <circle cx="50" cy="50" r="45" fill="#020617"/>
+        <path d="M 50 5 A 45 45 0 0 ${yttre} 50 95 A ${rx} 45 0 0 ${kant} 50 5 Z" fill="#f5f3ce"/>
     </svg>`;
     document.getElementById("moon_svg").innerHTML = svg;
 }
