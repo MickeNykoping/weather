@@ -1,12 +1,12 @@
 {
-  "uppdaterad": "2026-10-29T16:55:01+00:00",
+  "uppdaterad": "2026-10-29T17:00:02+00:00",
   "värden": {
     "Utetemperatur": {
       "värde": 5.0,
       "enhet": "°C"
     },
     "Framledning": {
-      "värde": 30.8,
+      "värde": 31.3,
       "enhet": "°C"
     },
     "Retur": {
@@ -18,7 +18,7 @@
       "enhet": "°C"
     },
     "Medeltemperatur ute": {
-      "värde": 7.0,
+      "värde": 6.9,
       "enhet": "°C"
     },
     "Tillsatsvärme effekt (kW)": {
