@@ -1,16 +1,16 @@
 {
-  "uppdaterad": "2026-10-31T09:35:02+00:00",
+  "uppdaterad": "2026-10-31T09:40:02+00:00",
   "värden": {
     "Utetemperatur": {
       "värde": 3.5,
       "enhet": "°C"
     },
     "Framledning": {
-      "värde": 48.9,
+      "värde": 47.9,
       "enhet": "°C"
     },
     "Retur": {
-      "värde": 46.1,
+      "värde": 45.1,
       "enhet": "°C"
     },
     "Varmvatten topp": {
@@ -26,7 +26,7 @@
       "enhet": "kW"
     },
     "Pump värmebärare (%)": {
-      "värde": 33.0,
+      "värde": 29.0,
       "enhet": "%"
     },
     "Värmekurva": {
