@@ -1,5 +1,5 @@
 {
-  "uppdaterad": "2026-10-31T00:30:05+00:00",
+  "uppdaterad": "2026-10-31T00:35:01+00:00",
   "värden": {
     "Utetemperatur": {
       "värde": 0.0,
@@ -18,7 +18,7 @@
       "enhet": "°C"
     },
     "Medeltemperatur ute": {
-      "värde": 3.8,
+      "värde": 3.7,
       "enhet": "°C"
     },
     "Tillsatsvärme effekt (kW)": {
