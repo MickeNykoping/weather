@@ -1,24 +1,24 @@
 {
-  "uppdaterad": "2026-11-01T00:15:02+00:00",
+  "uppdaterad": "2026-11-01T00:20:02+00:00",
   "värden": {
     "Utetemperatur": {
       "värde": -0.5,
       "enhet": "°C"
     },
     "Framledning": {
-      "värde": 29.4,
+      "värde": 28.9,
       "enhet": "°C"
     },
     "Retur": {
-      "värde": 28.6,
+      "värde": 28.1,
       "enhet": "°C"
     },
     "Varmvatten topp": {
-      "värde": 41.4,
+      "värde": 42.4,
       "enhet": "°C"
     },
     "Medeltemperatur ute": {
-      "värde": 2.8,
+      "värde": 2.7,
       "enhet": "°C"
     },
     "Tillsatsvärme effekt (kW)": {
@@ -34,7 +34,7 @@
       "enhet": ""
     },
     "Varmvattentemperatur": {
-      "värde": 42.0,
+      "värde": 43.0,
       "enhet": "°C"
     }
   }
