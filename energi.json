@@ -1,8 +1,8 @@
 {
-  "uppdaterad": "2026-11-02T23:00:03+00:00",
-  "effekt_w": 8508,
-  "senaste_timmen_kwh": 4.97,
-  "idag_kwh": 0.0,
-  "idag_kostnad_kr": 0.0,
-  "totalt_kwh": 38496.796
+  "uppdaterad": "2026-11-02T23:05:06+00:00",
+  "effekt_w": 8466,
+  "senaste_timmen_kwh": 5.57,
+  "idag_kwh": 0.706,
+  "idag_kostnad_kr": 1.18,
+  "totalt_kwh": 38497.502
 }
