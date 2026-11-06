@@ -1,20 +1,20 @@
 {
-  "uppdaterad": "2026-11-06T22:20:02+00:00",
+  "uppdaterad": "2026-11-06T22:25:02+00:00",
   "värden": {
     "Utetemperatur": {
       "värde": -2.7,
       "enhet": "°C"
     },
     "Framledning": {
-      "värde": 40.7,
+      "värde": 39.7,
       "enhet": "°C"
     },
     "Retur": {
-      "värde": 39.4,
+      "värde": 38.4,
       "enhet": "°C"
     },
     "Varmvatten topp": {
-      "värde": 46.2,
+      "värde": 49.7,
       "enhet": "°C"
     },
     "Medeltemperatur ute": {
@@ -34,7 +34,7 @@
       "enhet": ""
     },
     "Varmvattentemperatur": {
-      "värde": 46.0,
+      "värde": 50.0,
       "enhet": "°C"
     }
   }
