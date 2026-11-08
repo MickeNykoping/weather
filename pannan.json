@@ -1,12 +1,12 @@
 {
-  "uppdaterad": "2026-11-08T19:30:01+00:00",
+  "uppdaterad": "2026-11-08T19:35:02+00:00",
   "värden": {
     "Utetemperatur": {
       "värde": 3.3,
       "enhet": "°C"
     },
     "Framledning": {
-      "värde": 26.3,
+      "värde": 25.8,
       "enhet": "°C"
     },
     "Retur": {
