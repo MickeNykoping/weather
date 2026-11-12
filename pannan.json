@@ -1,16 +1,16 @@
 {
-  "uppdaterad": "2026-11-12T13:30:03+00:00",
+  "uppdaterad": "2026-11-12T13:35:02+00:00",
   "värden": {
     "Utetemperatur": {
       "värde": 4.8,
       "enhet": "°C"
     },
     "Framledning": {
-      "värde": 52.2,
+      "värde": 49.2,
       "enhet": "°C"
     },
     "Retur": {
-      "värde": 47.9,
+      "värde": 47.4,
       "enhet": "°C"
     },
     "Varmvatten topp": {
@@ -22,11 +22,11 @@
       "enhet": "°C"
     },
     "Tillsatsvärme effekt (kW)": {
-      "värde": 8.0,
+      "värde": 0.0,
       "enhet": "kW"
     },
     "Pump värmebärare (%)": {
-      "värde": 59.0,
+      "värde": 27.0,
       "enhet": "%"
     },
     "Värmekurva": {
@@ -34,7 +34,7 @@
       "enhet": ""
     },
     "Varmvattentemperatur": {
-      "värde": 51.0,
+      "värde": 52.0,
       "enhet": "°C"
     }
   }
