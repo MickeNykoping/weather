@@ -1,5 +1,5 @@
 {
-  "uppdaterad": "2026-11-12T17:55:01+00:00",
+  "uppdaterad": "2026-11-12T18:00:01+00:00",
   "värden": {
     "Utetemperatur": {
       "värde": -0.2,
@@ -26,7 +26,7 @@
       "enhet": "kW"
     },
     "Pump värmebärare (%)": {
-      "värde": 45.0,
+      "värde": 43.0,
       "enhet": "%"
     },
     "Värmekurva": {
