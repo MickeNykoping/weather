@@ -1,5 +1,5 @@
 {
-  "uppdaterad": "2026-11-12T17:40:02+00:00",
+  "uppdaterad": "2026-11-12T17:45:02+00:00",
   "värden": {
     "Utetemperatur": {
       "värde": 0.3,
@@ -10,7 +10,7 @@
       "enhet": "°C"
     },
     "Retur": {
-      "värde": 50.9,
+      "värde": 50.4,
       "enhet": "°C"
     },
     "Varmvatten topp": {
@@ -26,7 +26,7 @@
       "enhet": "kW"
     },
     "Pump värmebärare (%)": {
-      "värde": 51.0,
+      "värde": 47.0,
       "enhet": "%"
     },
     "Värmekurva": {
