@@ -1,5 +1,5 @@
 {
-  "uppdaterad": "2026-11-13T11:45:02+00:00",
+  "uppdaterad": "2026-11-13T11:50:02+00:00",
   "värden": {
     "Utetemperatur": {
       "värde": 1.3,
@@ -22,11 +22,11 @@
       "enhet": "°C"
     },
     "Tillsatsvärme effekt (kW)": {
-      "värde": 6.7,
+      "värde": 5.3,
       "enhet": "kW"
     },
     "Pump värmebärare (%)": {
-      "värde": 59.0,
+      "värde": 57.0,
       "enhet": "%"
     },
     "Värmekurva": {
