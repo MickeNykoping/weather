@@ -1,16 +1,16 @@
 {
-  "uppdaterad": "2026-11-18T11:15:02+00:00",
+  "uppdaterad": "2026-11-18T11:20:01+00:00",
   "värden": {
     "Utetemperatur": {
       "värde": 1.8,
       "enhet": "°C"
     },
     "Framledning": {
-      "värde": 43.0,
+      "värde": 42.0,
       "enhet": "°C"
     },
     "Retur": {
-      "värde": 39.9,
+      "värde": 39.4,
       "enhet": "°C"
     },
     "Varmvatten topp": {
