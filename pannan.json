@@ -1,5 +1,5 @@
 {
-  "uppdaterad": "2026-11-25T06:45:02+00:00",
+  "uppdaterad": "2026-11-25T06:50:02+00:00",
   "värden": {
     "Utetemperatur": {
       "värde": -1.0,
@@ -10,11 +10,11 @@
       "enhet": "°C"
     },
     "Retur": {
-      "värde": 22.6,
+      "värde": 22.1,
       "enhet": "°C"
     },
     "Varmvatten topp": {
-      "värde": 29.8,
+      "värde": 31.3,
       "enhet": "°C"
     },
     "Medeltemperatur ute": {
@@ -34,7 +34,7 @@
       "enhet": ""
     },
     "Varmvattentemperatur": {
-      "värde": 30.0,
+      "värde": 32.0,
       "enhet": "°C"
     }
   }
